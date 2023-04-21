@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Nettaktivitet</title>
-  </head>
-  <body>
-    <h1>Nettaktivitet</h1>
-    <p>This is my website about nettaktivitet.</p>
-  </body>
+<head>
+	<title>Form Submission Results</title>
+</head>
+<body>
+
+<h1 id="result"></h1>
+
+<script>
+// Get the form data from the webhook payload
+const formData = JSON.parse('{{{payload}}}');
+
+// Extract the values you want to display (assuming the form fields are named "name" and "email")
+const name = formData.name;
+const email = formData.email;
+
+// Create a message to display in the H1 element
+const message = `Thank you, ${name}, for submitting the form. We will contact you at ${email} shortly.`;
+
+// Set the text of the H1 element to the message
+document.getElementById("result").textContent = message;
+</script>
+
+</body>
 </html>
